@@ -4,5 +4,7 @@
   "description": "公用辅助方法",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "src/index.ts",
+  "types": "src/index.ts"
 }
