@@ -10,6 +10,7 @@ const pkgPath = resolvePackage(name);
 const pkgDistPath = resolvePackage(name, true);
 
 export default [
+    // react
     {
         input: path.join(pkgPath, module),
         output: {
@@ -18,6 +19,23 @@ export default [
             // 兼容cjs和esm的格式
             format: 'umd'
         },
+        plugins: getBaseRollupPlugins()
+    },
+    // jsx-runtime
+    {
+        input: path.join(pkgPath, 'src/jsx.ts'),
+        output: [
+            {
+                file: path.join(pkgDistPath, 'jsx-runtime.js'),
+                name: 'jsx-runtime',
+                format: 'umd'
+            },
+            {
+                file: path.join(pkgDistPath, 'jsx-dev-runtime.js'),
+                name: 'jsx-dev-runtime',
+                format: 'umd'
+            },
+        ],
         plugins: getBaseRollupPlugins()
     }
 ]

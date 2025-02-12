@@ -1,12 +1,12 @@
-import { REACT_ELEMENT_TYPE } from "@/shared/ReactSymbols";
+import { REACT_ELEMENT_TYPE } from "shared/ReactSymbols";
 import type {
 	Type,
 	Key,
 	Ref,
 	Props,
-	ReactElementType,
-} from "@/shared/ReactTypes";
-import { ElementType } from "@/shared/src/ReactTypes";
+	ReactElementType
+} from "shared/ReactTypes";
+import { ElementType } from "shared/src/ReactTypes";
 
 // 在React17之前，使用JSX转换的是React.createElement；在那之后是jsx-runtime
 
