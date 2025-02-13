@@ -17,6 +17,9 @@ importers:
       rollup:
         specifier: ^4.34.6
         version: 4.34.6
+      rollup-plugin-generate-package-json:
+        specifier: ^3.2.0
+        version: 3.2.0(rollup@4.34.6)
       rollup-plugin-typescript2:
         specifier: ^0.36.0
         version: 0.36.0(rollup@4.34.6)(typescript@5.7.3)
@@ -27,9 +30,23 @@ importers:
         specifier: workspace:*
         version: link:../shared
 
+  packages/react-reconciler:
+    dependencies:
+      shared:
+        specifier: workspace:*
+        version: link:../shared
+
   packages/shared: {}
 
 packages:
+
+  '@babel/code-frame@7.26.2':
+    resolution: {integrity: sha1-S1+rl9MzOO/5FiNQVfDrwh5XOoU=, tarball: http://r.npm.sankuai.com/@babel/code-frame/download/@babel/code-frame-7.26.2.tgz}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-validator-identifier@7.25.9':
+    resolution: {integrity: sha1-JLZOLD7HzTs8VHcpuNFocfIsvcc=, tarball: http://r.npm.sankuai.com/@babel/helper-validator-identifier/download/@babel/helper-validator-identifier-7.25.9.tgz}
+    engines: {node: '>=6.9.0'}
 
   '@biomejs/biome@1.9.4':
     resolution: {integrity: sha1-iXZigcvDoKroZaf/E9aq/+ooQr8=, tarball: http://r.npm.sankuai.com/@biomejs/biome/download/@biomejs/biome-1.9.4.tgz}
@@ -221,8 +238,18 @@ packages:
   '@types/estree@1.0.6':
     resolution: {integrity: sha1-Yo7/7q4gZKG055946B2Ht+X8e1A=, tarball: http://r.npm.sankuai.com/@types/estree/download/@types/estree-1.0.6.tgz}
 
+  '@types/normalize-package-data@2.4.4':
+    resolution: {integrity: sha1-VuLMJsOXwDj6sOOpF6EtXFkJ6QE=, tarball: http://r.npm.sankuai.com/@types/normalize-package-data/download/@types/normalize-package-data-2.4.4.tgz}
+
   commondir@1.0.1:
     resolution: {integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=, tarball: http://r.npm.sankuai.com/commondir/download/commondir-1.0.1.tgz}
+
+  detect-indent@5.0.0:
+    resolution: {integrity: sha1-OHHMCmoALow+Wzz38zYmRnXwa50=, tarball: http://r.npm.sankuai.com/detect-indent/download/detect-indent-5.0.0.tgz}
+    engines: {node: '>=4'}
+
+  error-ex@1.3.2:
+    resolution: {integrity: sha1-tKxAZIEH/c3PriQvQovqihTU8b8=, tarball: http://r.npm.sankuai.com/error-ex/download/error-ex-1.3.2.tgz}
 
   estree-walker@2.0.2:
     resolution: {integrity: sha1-UvAQF4wqTBF6d1fP6UKtt9LaTKw=, tarball: http://r.npm.sankuai.com/estree-walker/download/estree-walker-2.0.2.tgz}
@@ -252,14 +279,48 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  function-bind@1.1.2:
+    resolution: {integrity: sha1-LALYZNl/PqbIgwxGTL0Rq26rehw=, tarball: http://r.npm.sankuai.com/function-bind/download/function-bind-1.1.2.tgz}
+
   graceful-fs@4.2.11:
     resolution: {integrity: sha1-QYPk6L8Iu24Fu7L30uDI9xLKQOM=, tarball: http://r.npm.sankuai.com/graceful-fs/download/graceful-fs-4.2.11.tgz}
+
+  hasown@2.0.2:
+    resolution: {integrity: sha1-AD6vkb563DcuhOxZ3DclLO24AAM=, tarball: http://r.npm.sankuai.com/hasown/download/hasown-2.0.2.tgz}
+    engines: {node: '>= 0.4'}
+
+  hosted-git-info@2.8.9:
+    resolution: {integrity: sha1-3/wL+aIcAiCQkPKqaUKeFBTa8/k=, tarball: http://r.npm.sankuai.com/hosted-git-info/download/hosted-git-info-2.8.9.tgz}
+
+  imurmurhash@0.1.4:
+    resolution: {integrity: sha1-khi5srkoojixPcT7a21XbyMUU+o=, tarball: http://r.npm.sankuai.com/imurmurhash/download/imurmurhash-0.1.4.tgz}
+    engines: {node: '>=0.8.19'}
+
+  is-arrayish@0.2.1:
+    resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=, tarball: http://r.npm.sankuai.com/is-arrayish/download/is-arrayish-0.2.1.tgz}
+
+  is-core-module@2.16.1:
+    resolution: {integrity: sha1-KpiAGoSfQ+Kt1kT7trxiKbGaTvQ=, tarball: http://r.npm.sankuai.com/is-core-module/download/is-core-module-2.16.1.tgz}
+    engines: {node: '>= 0.4'}
+
+  is-plain-obj@1.1.0:
+    resolution: {integrity: sha1-caUMhCnfync8kqOQpKA7OfzVHT4=, tarball: http://r.npm.sankuai.com/is-plain-obj/download/is-plain-obj-1.1.0.tgz}
+    engines: {node: '>=0.10.0'}
 
   is-reference@1.2.1:
     resolution: {integrity: sha1-iy2sCzcfS8mU/eq6nrVC0DAC0Lc=, tarball: http://r.npm.sankuai.com/is-reference/download/is-reference-1.2.1.tgz}
 
+  js-tokens@4.0.0:
+    resolution: {integrity: sha1-GSA/tZmR35jjoocFDUZHzerzJJk=, tarball: http://r.npm.sankuai.com/js-tokens/download/js-tokens-4.0.0.tgz}
+
+  json-parse-even-better-errors@2.3.1:
+    resolution: {integrity: sha1-fEeAWpQxmSjgV3dAXcEuH3pO4C0=, tarball: http://r.npm.sankuai.com/json-parse-even-better-errors/download/json-parse-even-better-errors-2.3.1.tgz}
+
   jsonfile@6.1.0:
     resolution: {integrity: sha1-vFWyY0eTxnnsZAMJTrE2mKbsCq4=, tarball: http://r.npm.sankuai.com/jsonfile/download/jsonfile-6.1.0.tgz}
+
+  lines-and-columns@1.2.4:
+    resolution: {integrity: sha1-7KKE910pZQeTCdwK2SVauy68FjI=, tarball: http://r.npm.sankuai.com/lines-and-columns/download/lines-and-columns-1.2.4.tgz}
 
   locate-path@5.0.0:
     resolution: {integrity: sha1-Gvujlq/WdqbUJQTQpno6frn2KqA=, tarball: http://r.npm.sankuai.com/locate-path/download/locate-path-5.0.0.tgz}
@@ -268,9 +329,16 @@ packages:
   magic-string@0.30.17:
     resolution: {integrity: sha1-RQpElnPSRg5bvPupphkWoXFMdFM=, tarball: http://r.npm.sankuai.com/magic-string/download/magic-string-0.30.17.tgz}
 
+  make-dir@2.1.0:
+    resolution: {integrity: sha1-XwMQ4YuL6JjMBwCSlaMK5B6R5vU=, tarball: http://r.npm.sankuai.com/make-dir/download/make-dir-2.1.0.tgz}
+    engines: {node: '>=6'}
+
   make-dir@3.1.0:
     resolution: {integrity: sha1-QV6WcEazp/HRhSd9hKpYIDcmoT8=, tarball: http://r.npm.sankuai.com/make-dir/download/make-dir-3.1.0.tgz}
     engines: {node: '>=8'}
+
+  normalize-package-data@2.5.0:
+    resolution: {integrity: sha1-5m2xg4sgDB38IzIl0SyzZSDiNKg=, tarball: http://r.npm.sankuai.com/normalize-package-data/download/normalize-package-data-2.5.0.tgz}
 
   p-limit@2.3.0:
     resolution: {integrity: sha1-PdM8ZHohT9//2DWTPrCG2g3CHbE=, tarball: http://r.npm.sankuai.com/p-limit/download/p-limit-2.3.0.tgz}
@@ -284,9 +352,19 @@ packages:
     resolution: {integrity: sha1-yyhoVA4xPWHeWPr741zpAE1VQOY=, tarball: http://r.npm.sankuai.com/p-try/download/p-try-2.2.0.tgz}
     engines: {node: '>=6'}
 
+  parse-json@5.2.0:
+    resolution: {integrity: sha1-x2/Gbe5UIxyWKyK8yKcs8vmXU80=, tarball: http://r.npm.sankuai.com/parse-json/download/parse-json-5.2.0.tgz}
+    engines: {node: '>=8'}
+
   path-exists@4.0.0:
     resolution: {integrity: sha1-UTvb4tO5XXdi6METfvoZXGxhtbM=, tarball: http://r.npm.sankuai.com/path-exists/download/path-exists-4.0.0.tgz}
     engines: {node: '>=8'}
+
+  path-parse@1.0.7:
+    resolution: {integrity: sha1-+8EUtgykKzDZ2vWFjkvWi77bZzU=, tarball: http://r.npm.sankuai.com/path-parse/download/path-parse-1.0.7.tgz}
+
+  picocolors@1.1.1:
+    resolution: {integrity: sha1-PTIa8+q5ObCDyPkpodEs2oHCa2s=, tarball: http://r.npm.sankuai.com/picocolors/download/picocolors-1.1.1.tgz}
 
   picomatch@2.3.1:
     resolution: {integrity: sha1-O6ODNzNkbZ0+SZWUbBNlpn+wekI=, tarball: http://r.npm.sankuai.com/picomatch/download/picomatch-2.3.1.tgz}
@@ -296,9 +374,28 @@ packages:
     resolution: {integrity: sha1-d8dCkx6PO4gglGx2zQwfE3MNHas=, tarball: http://r.npm.sankuai.com/picomatch/download/picomatch-4.0.2.tgz}
     engines: {node: '>=12'}
 
+  pify@4.0.1:
+    resolution: {integrity: sha1-SyzSXFDVmHNcUCkiJP2MbfQeMjE=, tarball: http://r.npm.sankuai.com/pify/download/pify-4.0.1.tgz}
+    engines: {node: '>=6'}
+
   pkg-dir@4.2.0:
     resolution: {integrity: sha1-8JkTPfft5CLoHR2ESCcO6z5CYfM=, tarball: http://r.npm.sankuai.com/pkg-dir/download/pkg-dir-4.2.0.tgz}
     engines: {node: '>=8'}
+
+  read-pkg@5.2.0:
+    resolution: {integrity: sha1-e/KVQ4yloz5WzTDgU7NO5yUMk8w=, tarball: http://r.npm.sankuai.com/read-pkg/download/read-pkg-5.2.0.tgz}
+    engines: {node: '>=8'}
+
+  resolve@1.22.10:
+    resolution: {integrity: sha1-tmPoP/sJu/I4aURza6roAwKbizk=, tarball: http://r.npm.sankuai.com/resolve/download/resolve-1.22.10.tgz}
+    engines: {node: '>= 0.4'}
+    hasBin: true
+
+  rollup-plugin-generate-package-json@3.2.0:
+    resolution: {integrity: sha1-6cHTWPK+bFi0mFOvWCBSktRaM/8=, tarball: http://r.npm.sankuai.com/rollup-plugin-generate-package-json/download/rollup-plugin-generate-package-json-3.2.0.tgz}
+    engines: {node: '>=8.3'}
+    peerDependencies:
+      rollup: '>=1.0.0'
 
   rollup-plugin-typescript2@0.36.0:
     resolution: {integrity: sha1-MJVk63DXEEEvWQE0TKkgReGA7VM=, tarball: http://r.npm.sankuai.com/rollup-plugin-typescript2/download/rollup-plugin-typescript2-0.36.0.tgz}
@@ -311,6 +408,10 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
+  semver@5.7.2:
+    resolution: {integrity: sha1-SNVdtzfDKHzUg14X+hP+rOHEHvg=, tarball: http://r.npm.sankuai.com/semver/download/semver-5.7.2.tgz}
+    hasBin: true
+
   semver@6.3.1:
     resolution: {integrity: sha1-VW0u+GiRRuRtzqS/3QlfNDTf/LQ=, tarball: http://r.npm.sankuai.com/semver/download/semver-6.3.1.tgz}
     hasBin: true
@@ -320,8 +421,39 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  signal-exit@3.0.7:
+    resolution: {integrity: sha1-qaF2f4r4QVURTqq9c/mSc8j1mtk=, tarball: http://r.npm.sankuai.com/signal-exit/download/signal-exit-3.0.7.tgz}
+
+  sort-keys@2.0.0:
+    resolution: {integrity: sha1-ZYU1WEhh7JfXMNbPQYIuH1ZoQSg=, tarball: http://r.npm.sankuai.com/sort-keys/download/sort-keys-2.0.0.tgz}
+    engines: {node: '>=4'}
+
+  spdx-correct@3.2.0:
+    resolution: {integrity: sha1-T1qwZo8AWeNPnADc4zF4ShLeTpw=, tarball: http://r.npm.sankuai.com/spdx-correct/download/spdx-correct-3.2.0.tgz}
+
+  spdx-exceptions@2.5.0:
+    resolution: {integrity: sha1-XWB9J/yAb2bXtkp2ZlD6iQ8E7WY=, tarball: http://r.npm.sankuai.com/spdx-exceptions/download/spdx-exceptions-2.5.0.tgz}
+
+  spdx-expression-parse@3.0.1:
+    resolution: {integrity: sha1-z3D1BILu/cmOPOCmgz5KU87rpnk=, tarball: http://r.npm.sankuai.com/spdx-expression-parse/download/spdx-expression-parse-3.0.1.tgz}
+
+  spdx-license-ids@3.0.21:
+    resolution: {integrity: sha1-bW6YDJ3ytvyQU0OjstcCpiOVNsM=, tarball: http://r.npm.sankuai.com/spdx-license-ids/download/spdx-license-ids-3.0.21.tgz}
+
+  supports-preserve-symlinks-flag@1.0.0:
+    resolution: {integrity: sha1-btpL00SjyUrqN21MwxvHcxEDngk=, tarball: http://r.npm.sankuai.com/supports-preserve-symlinks-flag/download/supports-preserve-symlinks-flag-1.0.0.tgz}
+    engines: {node: '>= 0.4'}
+
   tslib@2.8.1:
     resolution: {integrity: sha1-YS7+TtI11Wfoq6Xypfq3AoCt6D8=, tarball: http://r.npm.sankuai.com/tslib/download/tslib-2.8.1.tgz}
+
+  type-fest@0.4.1:
+    resolution: {integrity: sha1-i993dDOF2KTxO6lfYQ9czWjHKPg=, tarball: http://r.npm.sankuai.com/type-fest/download/type-fest-0.4.1.tgz}
+    engines: {node: '>=6'}
+
+  type-fest@0.6.0:
+    resolution: {integrity: sha1-jSojcNPfiG61yQraHFv2GIrPg4s=, tarball: http://r.npm.sankuai.com/type-fest/download/type-fest-0.6.0.tgz}
+    engines: {node: '>=8'}
 
   typescript@5.7.3:
     resolution: {integrity: sha1-kZtEp9u4WDqbhW0WK+JKVL+ABz4=, tarball: http://r.npm.sankuai.com/typescript/download/typescript-5.7.3.tgz}
@@ -332,7 +464,29 @@ packages:
     resolution: {integrity: sha1-Fo78IYCWTmOG0GHglN9hr+I5sY0=, tarball: http://r.npm.sankuai.com/universalify/download/universalify-2.0.1.tgz}
     engines: {node: '>= 10.0.0'}
 
+  validate-npm-package-license@3.0.4:
+    resolution: {integrity: sha1-/JH2uce6FchX9MssXe/uw51PQQo=, tarball: http://r.npm.sankuai.com/validate-npm-package-license/download/validate-npm-package-license-3.0.4.tgz}
+
+  write-file-atomic@2.4.3:
+    resolution: {integrity: sha1-H9Lprh3z51uNjDZ0Q8aS1MqB9IE=, tarball: http://r.npm.sankuai.com/write-file-atomic/download/write-file-atomic-2.4.3.tgz}
+
+  write-json-file@3.2.0:
+    resolution: {integrity: sha1-Zbvcns2KFFjhWVJ3DMut/P9f5io=, tarball: http://r.npm.sankuai.com/write-json-file/download/write-json-file-3.2.0.tgz}
+    engines: {node: '>=6'}
+
+  write-pkg@4.0.0:
+    resolution: {integrity: sha1-Z1zATvbBH6rLvHdxskwKu/KiADk=, tarball: http://r.npm.sankuai.com/write-pkg/download/write-pkg-4.0.0.tgz}
+    engines: {node: '>=8'}
+
 snapshots:
+
+  '@babel/code-frame@7.26.2':
+    dependencies:
+      '@babel/helper-validator-identifier': 7.25.9
+      js-tokens: 4.0.0
+      picocolors: 1.1.1
+
+  '@babel/helper-validator-identifier@7.25.9': {}
 
   '@biomejs/biome@1.9.4':
     optionalDependencies:
@@ -455,7 +609,15 @@ snapshots:
 
   '@types/estree@1.0.6': {}
 
+  '@types/normalize-package-data@2.4.4': {}
+
   commondir@1.0.1: {}
+
+  detect-indent@5.0.0: {}
+
+  error-ex@1.3.2:
+    dependencies:
+      is-arrayish: 0.2.1
 
   estree-walker@2.0.2: {}
 
@@ -483,17 +645,41 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
+  function-bind@1.1.2: {}
+
   graceful-fs@4.2.11: {}
+
+  hasown@2.0.2:
+    dependencies:
+      function-bind: 1.1.2
+
+  hosted-git-info@2.8.9: {}
+
+  imurmurhash@0.1.4: {}
+
+  is-arrayish@0.2.1: {}
+
+  is-core-module@2.16.1:
+    dependencies:
+      hasown: 2.0.2
+
+  is-plain-obj@1.1.0: {}
 
   is-reference@1.2.1:
     dependencies:
       '@types/estree': 1.0.6
+
+  js-tokens@4.0.0: {}
+
+  json-parse-even-better-errors@2.3.1: {}
 
   jsonfile@6.1.0:
     dependencies:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  lines-and-columns@1.2.4: {}
 
   locate-path@5.0.0:
     dependencies:
@@ -503,9 +689,21 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  make-dir@2.1.0:
+    dependencies:
+      pify: 4.0.1
+      semver: 5.7.2
+
   make-dir@3.1.0:
     dependencies:
       semver: 6.3.1
+
+  normalize-package-data@2.5.0:
+    dependencies:
+      hosted-git-info: 2.8.9
+      resolve: 1.22.10
+      semver: 5.7.2
+      validate-npm-package-license: 3.0.4
 
   p-limit@2.3.0:
     dependencies:
@@ -517,15 +715,47 @@ snapshots:
 
   p-try@2.2.0: {}
 
+  parse-json@5.2.0:
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      error-ex: 1.3.2
+      json-parse-even-better-errors: 2.3.1
+      lines-and-columns: 1.2.4
+
   path-exists@4.0.0: {}
+
+  path-parse@1.0.7: {}
+
+  picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
 
   picomatch@4.0.2: {}
 
+  pify@4.0.1: {}
+
   pkg-dir@4.2.0:
     dependencies:
       find-up: 4.1.0
+
+  read-pkg@5.2.0:
+    dependencies:
+      '@types/normalize-package-data': 2.4.4
+      normalize-package-data: 2.5.0
+      parse-json: 5.2.0
+      type-fest: 0.6.0
+
+  resolve@1.22.10:
+    dependencies:
+      is-core-module: 2.16.1
+      path-parse: 1.0.7
+      supports-preserve-symlinks-flag: 1.0.0
+
+  rollup-plugin-generate-package-json@3.2.0(rollup@4.34.6):
+    dependencies:
+      read-pkg: 5.2.0
+      rollup: 4.34.6
+      write-pkg: 4.0.0
 
   rollup-plugin-typescript2@0.36.0(rollup@4.34.6)(typescript@5.7.3):
     dependencies:
@@ -562,12 +792,66 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.34.6
       fsevents: 2.3.3
 
+  semver@5.7.2: {}
+
   semver@6.3.1: {}
 
   semver@7.7.1: {}
 
+  signal-exit@3.0.7: {}
+
+  sort-keys@2.0.0:
+    dependencies:
+      is-plain-obj: 1.1.0
+
+  spdx-correct@3.2.0:
+    dependencies:
+      spdx-expression-parse: 3.0.1
+      spdx-license-ids: 3.0.21
+
+  spdx-exceptions@2.5.0: {}
+
+  spdx-expression-parse@3.0.1:
+    dependencies:
+      spdx-exceptions: 2.5.0
+      spdx-license-ids: 3.0.21
+
+  spdx-license-ids@3.0.21: {}
+
+  supports-preserve-symlinks-flag@1.0.0: {}
+
   tslib@2.8.1: {}
+
+  type-fest@0.4.1: {}
+
+  type-fest@0.6.0: {}
 
   typescript@5.7.3: {}
 
   universalify@2.0.1: {}
+
+  validate-npm-package-license@3.0.4:
+    dependencies:
+      spdx-correct: 3.2.0
+      spdx-expression-parse: 3.0.1
+
+  write-file-atomic@2.4.3:
+    dependencies:
+      graceful-fs: 4.2.11
+      imurmurhash: 0.1.4
+      signal-exit: 3.0.7
+
+  write-json-file@3.2.0:
+    dependencies:
+      detect-indent: 5.0.0
+      graceful-fs: 4.2.11
+      make-dir: 2.1.0
+      pify: 4.0.1
+      sort-keys: 2.0.0
+      write-file-atomic: 2.4.3
+
+  write-pkg@4.0.0:
+    dependencies:
+      sort-keys: 2.0.0
+      type-fest: 0.4.1
+      write-json-file: 3.2.0

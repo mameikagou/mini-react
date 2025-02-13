@@ -1,6 +1,8 @@
-import path from 'path';
+import path, { basename } from 'path';
 
 import {getPackagesJson, resolvePackage, getBaseRollupPlugins} from './utill'
+
+import generatePackageJson from 'rollup-plugin-generate-package-json';
 
 // 获取react的package.json的name字段
 const {name, module} = getPackagesJson('react');
@@ -19,7 +21,16 @@ export default [
             // 兼容cjs和esm的格式
             format: 'umd'
         },
-        plugins: getBaseRollupPlugins()
+        plugins: [...getBaseRollupPlugins(),generatePackageJson({
+            inputFolder: pkgPath,
+            outputFolder: pkgDistPath,
+            baseContents: ({name, description, version})=>({ // 配置打包后的package.json
+                name,
+                version,
+                description,
+                main: 'index.js', // umd支持cjs
+            })
+        })]
     },
     // jsx-runtime
     {
