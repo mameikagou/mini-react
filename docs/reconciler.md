@@ -20,6 +20,27 @@ ReactElement没法表达自己跟其他节点的关系
 - FiberNode：
 - DOM Element：浏览器的api
 
+```jsx
+// JSX
+<div>Hello</div>
+
+// React Element
+{
+  type: 'div',
+  props: { children: 'Hello' }
+}
+
+// Fiber Node
+{
+  type: 'div',
+  tag: HostComponent,
+  stateNode: DOMElement,
+  child: null,
+  sibling: null,
+  return: null
+}
+```
+
 Reconciler的工作就是构建fiber树，标记增加/删除/改动 等等，不断diff，然后更新；
 
 可中断的diff：
