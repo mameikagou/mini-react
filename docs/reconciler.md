@@ -41,10 +41,21 @@ ReactElement没法表达自己跟其他节点的关系
 }
 ```
 
+
+## Reconciler
 Reconciler的工作就是构建fiber树，标记增加/删除/改动 等等，不断diff，然后更新；
+
+当所有的React Element比较完了之后，会有两课fiberNode树，一个current树，对应真实ui
+一个workinProgress，对应触发更新了，在reconciler中计算的fiberNode树
+
 
 可中断的diff：
 
 两个阶段：
-可中断阶段： render：构建fiber树，进行diff，收集effect（生命周期）
-不可中断阶段：
+可中断阶段： render阶段：构建fiber树，进行diff，收集effect（生命周期）
+不可中断阶段：commit阶段：调用生命周期，处理dom更新，处理副作用
+
+
+### 如何实现一个useEffect？
+
+在fiber中存储以及获取依赖项，每次diff的时候都去更新；

@@ -12,3 +12,6 @@ export interface ReactElement {
     props: Props;
     _mark: string;
 } 
+
+
+export type Action<State> = State | ((prevState: State) => State); // 本身，或者箭头函数；
