@@ -25,7 +25,7 @@
         "baseUrl": ".",
         "paths": {
             "hostConfig": [
-                "./react-dom/src/hostConfig.ts"
+                "./packages/react-reconciler/src/hostConfig.ts"
             ],
             "@/*": ["./packages/*"]
         }

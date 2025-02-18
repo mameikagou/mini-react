@@ -1,4 +1,5 @@
 import { beginWork } from "./beginWork";
+import { completeWork } from "./completeWork";
 import { FiberNode } from "./fiber";
 
 let workInProgress: FiberNode | null = null;
@@ -23,7 +24,7 @@ function renderRoot(root: FiberNode){
 
 function workLoop() {
     while(workInProgress!==null){
-        workInProgress = performUnitOfWork(workInProgress);
+        performUnitOfWork(workInProgress);
     }
 }
 
@@ -43,7 +44,7 @@ function completeUnitOfWork(fiber: FiberNode){
     let node: FiberNode | null = fiber;
 
     do {
-        const next = completeWork(node);
+        completeWork(node);
 
         const sibling = node.sibling;
 
@@ -53,5 +54,6 @@ function completeUnitOfWork(fiber: FiberNode){
         }
         node = node.return; // 向上返回, 继续完成父节点
         workInProgress = node; // 类似链表移动的那种操作
+        
     } while (node!==null);
 }

@@ -1,6 +1,7 @@
 import { Props, Key } from "shared/src/ReactTypes";
 import { WorkTag } from "./workTag";
 import { Flags, NoFlags } from "./fiberFlags";
+import { Container } from "hostConfig";
 
 export class FiberNode {
   type: any;
@@ -16,6 +17,8 @@ export class FiberNode {
   memoizedProps: Props | null;
   alternate: FiberNode | null; // 便于在两个fiber节点（一个fiber，一个workProgress）之间进行切换，用于diff算法；会保存对另一个fiber节点的引用；
   flags: Flags // 用于保存reconciler标记
+
+  updateQueue: unknown; // 保存了当前fiber节点的更新队列，用于保存当前fiber节点的更新信息；
 
 
   constructor(tag: WorkTag, pendingProps: Props, key: Key) {
@@ -41,5 +44,24 @@ export class FiberNode {
 
     this.alternate = null;
     this.flags = NoFlags;
+
+    this.updateQueue = [];
   }
+}
+
+
+export class FiberRootNode {
+  container: Container; // 挂载的容器，在ReactDOM.render()中传入的第一个参数；在dom中是ReactElement；
+
+  current: FiberNode; // 当前的fiber节点
+  finishedWork: FiberNode | null; // 当前的fiber节点完成后的节点(就是完成了整个递归流程的hostrootfiber节点，就是那个Dom.createRoot()返回的fiber节点)
+  
+  constructor(container: Container, hostRootFiber: FiberNode) {
+    this.container = container;
+    this.current = hostRootFiber;
+    this.finishedWork = null;
+    
+    hostRootFiber.stateNode = this;
+  }
+
 }
