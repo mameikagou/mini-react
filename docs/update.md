@@ -1,7 +1,11 @@
 
 
 常见的触发更新：
-- ReactDom.createRoot
+- ReactDom.createRoot -- HostRoot
+
+- this.setState -- updateClassComponent
+- this.forceUpdate -- updateClassComponent
+
 - setState
 - dispatch
 

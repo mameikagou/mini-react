@@ -1,4 +1,4 @@
-import { Action } from "shared/src/ReactTypes";
+import type { Action } from "@/shared/src/ReactTypes";
 
 
 // setState（{xx:1}
